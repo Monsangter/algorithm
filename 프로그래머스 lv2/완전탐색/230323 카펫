@@ -1,0 +1,43 @@
+from itertools import combinations
+
+def solution(brown, yellow):
+    answer = []
+
+    ls = []
+
+# 갈색의 개수. 상하 길이, 좌우길이 , 겹치는 곳4곳.
+# 노랑 개수 = 상하길이 -2, 좌우길이 -2 곱했을때 값.
+
+# 즉 
+#     7 = x+y
+#     brown = 2x + 2y -4 brown/2 = x+y-2
+#     xy = brown+yellow
+#     x와 y를 알아내세요. 단 y는 x보다 작음.
+#     x+y = brown/2 -2
+
+    
+#     두개 더한 값의 약수를 찾아서, 그 약수를 하나씩 검사해보셈. 맞는게 잇는지
+    n = brown + yellow
+    
+    for i in range(1, n):
+        if n % i == 0 :
+            ls.append(i)
+            
+    
+    v = combinations(ls,2)
+    
+    for i, j in v:
+        
+        if i * j == n and brown/2 == i + j -2:
+            answer.append(j)
+            answer.append(i)
+        
+        print(i,j,answer,n)
+        
+    if not answer:
+        answer.append(n**(1/2))
+        answer.append(n**(1/2)) 
+    
+    
+    return answer
+        
