@@ -4,27 +4,21 @@ def solution(food):
     str1 = ""
     
     ls = []
-    
-    
+     
     for i in food:
         ls.append(i//2)
         
     print(ls)
     
     for i in range(1,len(ls)):
-        str1 += str(i) * ls[i]
+        answer += str(i) * ls[i]
         
-    answer = str1
     
     answer += "0"
     
-
     for i in range(1,len(ls)+1):
         answer += str(len(ls)-i) * ls[-i]
-    
-    print(answer)
-    
-    
+
     return answer
 
 #일단 짝수로 만들어 줄 것.
