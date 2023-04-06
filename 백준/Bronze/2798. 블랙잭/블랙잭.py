@@ -15,9 +15,9 @@ def main():
   pro = 300000
 
   for i in ls2:
-    if abs(M - sum(i))< pro and sum(i) <= M:
+    if M - sum(i)< pro and sum(i) <= M:
       tmp = sum(i)
-      pro = abs(M-sum(i))
+      pro = M-sum(i)
 
   print(tmp)
   
